@@ -42,6 +42,7 @@ describe("Unit test create product use case", () => {
     const productRepository = MockRepository();
     const customerCreateUseCase = new CreateProductUseCase(productRepository);
 
+    input.name = "Product 1";
     input.price = -5;
 
     await expect(customerCreateUseCase.execute(input)).rejects.toThrow(
