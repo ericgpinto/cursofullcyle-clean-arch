@@ -57,4 +57,20 @@ describe("Unit testss for notifications", () => {
 
     expect(notification.getErrors()).toEqual([error]);
   });
+
+  it("should create two erros at the same time", () => {
+    const notification = new Notification();
+    const error = {
+      message: "Error 1",
+      context: "product",
+    };
+    const error2 = {
+      message: "Error 2",
+      context: "product",
+    };
+    notification.addError(error);
+    notification.addError(error2);
+
+    expect(notification.getErrors().length).toEqual(2);
+  });
 });
